@@ -6,16 +6,23 @@
 class Board{
 public:
 Board();
+Board(const &Board);
 
 void place(int chip,int col);
-bool colFull(int col);
-bool checkWin();
-
+bool checkFull(int col);
+int checkWinHorizontal();
+int checkWinVertical();
+int checkWinDiagonal();
+int checkWin();
+bool checkEdge(int* currentNode);
+int* getCell(int row, int col);
 const std::vector<std::vector<int> > getState();
 
 void display();
-private:
   std::vector<std::vector<int> > grid;
+
+private:
+
 };
 
 
