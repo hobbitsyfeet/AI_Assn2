@@ -4,8 +4,31 @@
 using namespace std;
 
 int main(){
-Board Connect4;
-int count = 0;
+//Board Connect4;
+Tree states;
+
+node** tmpPtr = &states.root;
+states.root->addChild();
+tmpPtr = (&(states.root->getChild(0)));
+//tmpPtr->state.display();
+
+//tmpPtr->state.display();
+
+
+//tmpPtr->state.display();
+//Tree C4tree(0);
+//C4tree.generate(2,C4tree.getRoot(),1);
+//C4tree.getRoot()->next[3]->state.display();
+//(C4tree.getRoot(),0)->state.display();
+//C4tree.display(C4tree.getRoot());
+//std::cout<<C4tree.getChildSize();
+//C4tree.display();
+//C4tree.getRoot()->state.display();
+//node* tempPtr = C4tree.getChild(2);
+//tempPtr->state.display();
+
+
+//C4tree.display(C4tree.getRoot());
 /*
 for (int i = 0; i < 7; i++) {
   for (int j = 0; j < 6; j++){
@@ -14,13 +37,14 @@ for (int i = 0; i < 7; i++) {
     }
 }*/
 //Connect4.display();
+/*
 for (int i = 0; i < 8; i++) {
   for (int j = 0; j < 8; j++){
       //count++;
       std::cout<<Connect4.checkEdge(Connect4.getCell(i,j))<<" ";
     }
     cout<< endl;
-}
+}*/
 
 /*
 Connect4.place(2,1);

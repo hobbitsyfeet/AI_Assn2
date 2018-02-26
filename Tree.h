@@ -7,28 +7,49 @@
 struct node
 {
   Board state;
-  node* previous; //pointer to previous node
-  std::vector<node*> next; //vector of node pointers
+	vector<node> children;
+	node* parent;
+
+	/*
+  node* parent; //pointer to previous node
+  node* firstChild;
+	node* sibling;
+	node* addChild();
+	node* getChild(int child);
+	//deleteNode();*/
 };
 
-class Tree
-{
+class Tree{
     public:
-        Tree(int startPlayer);
-        void generate(int currentPlayer, node* root, int depth);
+        Tree();
+				generate(int currentPlayer, int depth, node currentNode);
+
+				/*
+				node* getRoot();
+				void generate(int currentPlayer, node* currentNode, int depth);
+				*/
+				//void Insert(node);
+				/*
+        void generate(int currentPlayer, node* &currentNode, int depth);
+				void setSubtree(node *root); // clears any node that isn't this root or it
+				//node* getRoot();
+				node* getParent(node* currentNode);
+				node* getChild(node* currentNode,int childNum);
+				int getChildSize(node* currentNode);
+				//Board getState();
+				void destroyTree(node* currentNode);
+				void display(node* currentNode);
+				*/
         //Tree()
         //~btree();
 
         //void insert(int key);
         //node *search(int key);
         //void destroy_tree();
-
+				node root;
     private:
-        //void destroy_tree(node *leaf);
-        //void insert(int key, node *leaf);
-        //node *search(int key, node *leaf);
-        int counter = 0;
-        node *root;
+        //int counter = 0;
+
 };
 
 #endif //TREE_H

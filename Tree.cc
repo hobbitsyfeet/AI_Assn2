@@ -1,89 +1,76 @@
 #include "Tree.h"
-//#include "Board.h"
-#include <iostream>
-#include <cassert>
-#include <stack>
-#include <vector>
-//Note: start player should only be 1 or 2
 
-
-Tree::Tree(int startPlayer)
-{
-  assert(startPlayer == 1 || startPlayer == 2); //make sure current player is 1 or 2
-  Board gameState; // start with a blank board
-  //create root foundation
-  root = new node; //create a new root
-  root->previous = 0; //root's previous state is null
-  root->state = gameState;  //push blank state to root of state Tree
-  int currentPlayer = startPlayer;
-  //helper variables
-  //node* tempPrevPtr = root; //previous pointer is set to root for later new node
-
-
-}//end Constructor
-
-void Tree::generate(int currentPlayer, node* root,int depth){
-  //std::cout<<depth;
-  //std::cout<<"\n";
-  int numOptions = 7;
-  int numOptionsComplete = 0;
-  //root->state.display();
-
-  if((root->state.checkWin() == 1 || root->state.checkWin() == 2)){
-    root->state.display();
-    std::cout<<"\n";
-    return;
-  }
-  if(depth == 0 || (root->state.checkWin() == 1 || root->state.checkWin() == 2)){
-    //root->state.display();
-    //std::cout<<"\n";
-    return;
-  }
-
-
-  //create new node
-  node* tempPtr = root;
-  root = new node;
-  root->previous = tempPtr;
-
-  //change player
-  if(currentPlayer == 2){currentPlayer = 1;}
-  else{currentPlayer = 2;}
-int number = 0;
-for(int count = 0; count < 7; count ++){
-      //std::cout<< "\nNUM:numStates"<<count;
-      Board tempBoard = root->previous->state;
-      if(!tempBoard.checkFull(count)){
-
-        tempBoard.place(currentPlayer,count);
-        root->state = tempBoard;
-
-        tempPtr->next.push_back(root);
-        //root->state.display();
-        //numOptionsComplete++;
-        generate(currentPlayer,root, depth-1);
-        number ++;
-      }
-  }
-  /*
-  root = new node;
-  root->previous = tempPrevPtr; //assign current's previous
-  tempPrevPtr = root;
-  for(int playerOptions = 0; playerOptions < 7; playerOptions ++){
-    //if(!root->state.checkFull(playerOptions)){
-      //for every 7 possibilities per turn, create a new node
-      root->state = root->previous->state;
-      root->state.place(currentPlayer,playerOptions);
-      root->previous->next.push_back(root); //previous's next is currently
-
-      root->state.display();
-      for(int count = 0; count < root->previous->next.size(); count++){
-        generate(currentPlayer,root->previous->next[count],nextState);
-      }
-      //stateCount++; //increment stateCount
-    //}
-  }//end player Options
-*/
+Tree::Tree(){
+	Board newState;
+	root.state = newState;
+	root.parent = 0;
 }
 
-//Tree::
+Tree::generate(int currentPlayer, int depth, node currentNode){
+	node tempNode;
+	for(int i = 0; i < 7; i++){
+		if(!currentNode.state.checkFull(i)){
+
+		}
+	}
+}
+
+/*
+
+Tree::Tree(){
+	Board newState;
+	root = new node;
+	root->state = newState;
+	root->parent = 0;
+	root->firstChild = 0;
+	root->sibling = 0;
+}
+
+node* node::addChild(){
+	if(firstChild == 0){
+		firstChild = new node;
+		firstChild->parent = this;
+		firstChild->state = this->state;
+		firstChild->sibling = 0;
+		return firstChild;
+	}
+	/*
+	else{
+	//create a pointer to first child
+	node* childPtr = firstChild;
+	//iterate until last child
+		while(childPtr->sibling != 0){
+			childPtr = childPtr->sibling;
+		}
+	childPtr->sibling = new node;
+	childPtr->sibling->state = parent->state;
+	childPtr->sibling->sibling = 0;
+	return childPtr->sibling;
+}
+}
+
+node* node::getChild( int child){
+	node* childPtr = firstChild;
+	for(int count = 0; count <= child; count++){
+		childPtr = childPtr->sibling;
+	}
+	return childPtr;
+}
+
+node* Tree::getRoot(){
+	return this->root;
+}
+void Tree::generate(int currentPlayer, node* currentNode, int depth){
+			currentNode->addChild();
+	for(int count = 0; count < 7; count ++){
+
+
+	      //Board tempBoard = currentNode->parent->state;
+
+	      //if(!tempBoard.checkFull(count)){
+					//addChild(currentNode);
+				//}
+	  }
+		//generate(currentPlayer,currentNode, depth-1);
+}
+*/

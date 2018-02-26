@@ -11,9 +11,9 @@ grid.resize(6, vector<int>(7));
 /*row->  v  */
 
 }
-Board::Board(const &Board){
-  this->grid = grid;
-}
+//Board::Board(const &Board){
+//  this->grid = grid;
+//}
 
 
 void Board::place(int chip, int column){

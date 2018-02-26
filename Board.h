@@ -6,7 +6,7 @@
 class Board{
 public:
 Board();
-Board(const &Board);
+//Board(const &Board);
 
 void place(int chip,int col);
 bool checkFull(int col);
