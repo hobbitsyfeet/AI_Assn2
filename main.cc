@@ -1,15 +1,56 @@
 #include <iostream>
 #include "Board.h"
-#include "Tree.h"
+//#include "Tree.h"
 using namespace std;
 
 int main(){
-//Board Connect4;
+  Board Connect4;
+  Connect4.place(2,0);
+  Connect4.place(1,0);
+  Connect4.place(5,0);
+  Connect4.place(2,0);
+  Connect4.place(1,0);
+  //Connect4.place(2,0);
+
+  Connect4.place(1,1);
+  Connect4.place(9,1);
+  Connect4.place(1,1);
+  Connect4.place(2,1);
+  //Connect4.place(2,1);
+
+  Connect4.place(2,2);
+  Connect4.place(1,2);
+  Connect4.place(6,2);
+  Connect4.place(2,2);
+
+  Connect4.place(1,3);
+  Connect4.place(2,3);
+  Connect4.place(8,3);
+  Connect4.place(2,3);
+
+  Connect4.place(1,4);
+  Connect4.place(3,4);
+  Connect4.place(2,4);
+
+  Connect4.place(2,5);
+
+  //Connect4.checkWinDiagonal();
+  /*
+  int count = 0;
+  for (int i = 0; i < 7; i++) {
+    for (int j = 0; j < 6; j++){
+        count++;
+        Connect4.place(count,i);
+      }
+  }*/
+  Connect4.display();
+/*
 Tree states;
 
 node** tmpPtr = &states.root;
 states.root->addChild();
 tmpPtr = (&(states.root->getChild(0)));
+*/
 //tmpPtr->state.display();
 
 //tmpPtr->state.display();
@@ -30,12 +71,7 @@ tmpPtr = (&(states.root->getChild(0)));
 
 //C4tree.display(C4tree.getRoot());
 /*
-for (int i = 0; i < 7; i++) {
-  for (int j = 0; j < 6; j++){
-      count++;
-      Connect4.place(count,i);
-    }
-}*/
+
 //Connect4.display();
 /*
 for (int i = 0; i < 8; i++) {

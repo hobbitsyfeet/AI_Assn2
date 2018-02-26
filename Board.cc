@@ -11,9 +11,9 @@ grid.resize(6, vector<int>(7));
 /*row->  v  */
 
 }
-//Board::Board(const &Board){
-//  this->grid = grid;
-//}
+Board::Board(const &Board){
+  this->grid = grid;
+}
 
 
 void Board::place(int chip, int column){
@@ -137,23 +137,6 @@ int Board::checkWinVertical(){
   return 0;
 }
 
-int Board::checkWinDiagonal(){
-  //while not the edge
-  for (int i = 0; i < 11; i ++){
-    if(i < 3){// left to top
-      //while(){}
-    }
-    else if(3 <= i && i < 5 ){//top left to middle
-    }
-    else if(i == 5){//case goes both ways
-    }
-    else if(6 <= i && i < 9){//top middle to right
-    }
-    else{//top right -> down
-    }
-  }
-  return 0;
-}
 /*
 int Board::checkWinDiagonal(){
   //cout<<"CHECKING diagonal\n";
@@ -162,17 +145,11 @@ int Board::checkWinDiagonal(){
 
   //columns 3 to 5, row 0
 
-  for(int col = 3; col < 8; col++){
+  for(int col = 3; col < 6; col++){
       int diagonalCount = 0;
       int row = 0;
       bool lastRow = false;
-      int tempCol;
-      if(col > 5 ){
-       tempCol = 6;
-      }
-      else{
-       tempCol = col;
-      }
+      int tempCol = col;
 
       //while(diagonalCount != col+1){
 
@@ -187,11 +164,11 @@ int Board::checkWinDiagonal(){
           //count increases
           if(currentCount == grid[row][tempCol]){
               count++;
-              //cout<<"Incrementing count of "<<currentCount<<" to "<<count<<endl;
+              cout<<"Incrementing count of "<<currentCount<<" to "<<count<<endl;
           }
           //current grid cell != currentCount number
           else{
-              //cout<<"current count set to " << grid[row][tempCol]<<endl;
+              cout<<"current count set to " << grid[row][tempCol]<<endl;
               currentCount = grid[row][tempCol];
               count = 1;
           }//end else if count increase
@@ -215,8 +192,11 @@ int Board::checkWinDiagonal(){
         //if(lastRow == true){break;}
         //if we have done last row, do not go any further.
       }//end while
-  }//end col 3-6
+    }
 
+
+  }//end col 3-6
+/*
   for(int row = 0; row < 8; row++){
     //int diagonalCount = 0;
     int col = 0;
@@ -235,9 +215,9 @@ int Board::checkWinDiagonal(){
       }
       cout<<endl;
   }
-
-  return 0;
-}*/
+*/
+  //return 0;
+//}
 
 
 
@@ -276,7 +256,6 @@ bool Board::checkEdge(int* currentNode){
     return false;
 }
 
-int* Board::getCell(int row, int col){
-  int* ptr = &grid[row][col];
-  return ptr;
+int Board::getCell(int row, int col){
+  return grid[row][col];
 }
